@@ -5,7 +5,6 @@ const form = document.querySelector('.form__control');
 
 form.addEventListener('submit',formSubmit);
 addBtn.addEventListener('click', valueCheck);
-todoInp
 function valueCheck(){
     if(todoInp.value === ''){
         checker.innerHTML = '<p>Dont empty</p>';
