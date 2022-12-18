@@ -3,16 +3,34 @@ const todoInp = document.querySelector('.addtodo__input');
 const checker = document.querySelector('.input-checker');
 const form = document.querySelector('.form__control');
 
-form.addEventListener('submit',formSubmit);
-addBtn.addEventListener('click', valueCheck);
+eventListeners();
+
+function eventListeners(){
+    form.addEventListener('submit',formSubmit);
+    addBtn.addEventListener('click', valueCheck);
+}
+
+function formSubmit(e){
+    e.preventDefault();
+    
+}
+
 function valueCheck(){
-    if(todoInp.value === ''){
-        checker.innerHTML = '<p>Dont empty</p>';
-        return;
+    const todoInputValue = todoInp.value.trim();
+    if(todoInputValue === ''){
+        checker.innerHTML = 'This section cannot be left blank';
+        todoInp.classList.add('error');
     }
     else{
-        checker.innerHTML = '';
+        console.log(todoInputValue);
     }
 }
 
+function addTodo(){
+
+}
+
+function addTodoToUI(){
+
+}
 

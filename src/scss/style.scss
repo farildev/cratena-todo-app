@@ -36,7 +36,7 @@ html{
     height: 100%;
     .todo__body{
         background-color: $dark-color;
-        width: 50%;
+        width: 75%;
         height: auto;
         border-radius: 10px;
         padding: 2rem;
@@ -65,16 +65,13 @@ html{
             height: 100%;
             .input-checker{
                 margin-top: 20px;
-                p{
-                    color: red;
-                    font-size: 14px;
-                    
-                }
+                color: $red-color;
             }
             .top__input{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                margin-top: 10px;
                 .addtodo__input{
                     width: 80%;
                     outline: none;
@@ -84,6 +81,9 @@ html{
                     color: $light-color;
                     font-family: 'DM Sans',sans-serif;
                     font-size: 14px;
+                    &.error{
+                        border: 1px solid $red-color;
+                    }
                     &::placeholder{
                         font-family: inherit;
                     }
