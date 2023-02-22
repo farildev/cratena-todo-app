@@ -15,8 +15,8 @@ function addTodo(e){
     const newTodo = todoInput.value.trim();
 
     console.log(newTodo);
-
-
+    
+    
     
     e.preventDefault();
 }
