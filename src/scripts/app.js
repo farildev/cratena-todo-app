@@ -8,15 +8,16 @@ eventListeners();
 
 function eventListeners(){
     form.addEventListener('submit', addTodo);
-    
 }
-
 function addTodo(e){
     const newTodo = todoInput.value.trim();
-
     if(todoInput.value == 0){
-        checker.innerHTML = "Burani doldur qagassss"
+        checker.innerHTML = "You cannot leave this field blank!"
         todoInput.classList.add('error');
+        setTimeout(function(){
+            todoInput.classList.remove('error');
+            checker.innerHTML = '';
+        },2000)
     }
     else{
         console.log('Daily mission added!')
@@ -24,7 +25,7 @@ function addTodo(e){
     e.preventDefault();
 }
 
-function addTodoToUi(){
+function addTodoToUi(addTodo){
     document.createElement('div');
     div.className = 'todo__area';
 }

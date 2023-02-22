@@ -63,9 +63,10 @@ html{
         .form__control{
             width: 100%;
             height: 100%;
+            position: relative;
             .input-checker{
                 margin-top: 20px;
-                color: $red-color;
+                color: $red-color;    
             }
             .top__input{
                 display: flex;
@@ -85,6 +86,13 @@ html{
                     border-radius: 5px;
                     &.error{
                         border: 1px solid $red-color;
+                        transition: 500ms all ease-in-out;
+                        &::placeholder{
+                            color: rgba($color: red, $alpha: 0.5);
+                        }
+                        &:hover{
+                            transition: 500ms all ease-in-out;
+                        }
                     }
                     &::placeholder{
                         font-family: inherit;
@@ -138,11 +146,12 @@ html{
                             button{
                                 outline: none;
                                 border: none;
-                                padding: 0.8rem;
+                                padding: 0.5rem;
                                 border: 1px solid rgba($color: #ffffff, $alpha: 0.1);
                                 border-radius: 5px;
+                                cursor: pointer;
                                 i{
-                                    font-size: 16px;
+                                    font-size: 18px;
                                 }
                             }
                             #checkBtn{
