@@ -14,10 +14,34 @@ function eventListeners(){
 function addTodo(e){
     const newTodo = todoInput.value.trim();
 
-    console.log(newTodo);
-    
-    
-    
+    if(todoInput.value == 0){
+        checker.innerHTML = "Burani doldur qagassss"
+        todoInput.classList.add('error');
+    }
+    else{
+        console.log('Daily mission added!')
+    }
     e.preventDefault();
+}
+
+function addTodoToUi(){
+    document.createElement('div');
+    div.className = 'todo__area';
+}
+
+function deleteTodo(){
+
+}
+
+function editTodo(){
+
+}
+
+function sendStorage(){
+
+}
+
+function deleteFromStorage(){
+
 }
 
