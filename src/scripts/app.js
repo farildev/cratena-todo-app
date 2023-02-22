@@ -26,9 +26,10 @@ function addTodo(e){
     e.preventDefault();
 }
 
-function addTodoToUi(addTodo){
-    document.createElement('div');
-    div.className = 'todo__area';  
+function addTodoToUI(newTodo){
+    const todoBox = document.createElement("div");
+    const listItem = document.createElement("li");
+    todoBox.className = "todo__box";
 }
 
 function deleteTodo(){
