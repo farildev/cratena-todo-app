@@ -12,21 +12,21 @@ function eventListeners(){
 function addTodo(e){
     const newTodo = todoInp.value.trim();
     // if(todoInputValue === ''){
-    //     checker.innerHTML = 'This section cannot be left blank';
-    //     todoInp.classList.add('error');
+    //      checker.innerHTML = 'This section cannot be left blank';
+    //      todoInp.classList.add('error');
     // }
-    // else{
-    //     console.log(newTodo);
+    //  else{
+    //      console.log(newTodo);
     // }
     addTodoToUI(newTodo);
 
     e.preventDefault();
+    console.log(newTodo);
     
 }
 
 
 function addTodoToUI(newTodo){
-    const listItem = document.createElement('li');
-    console.log(listItem);
+    const listItem = document.createElement('div');
+    listItem.className = 'todo__box';
 }
-
