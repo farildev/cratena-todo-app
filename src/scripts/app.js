@@ -14,6 +14,7 @@ function addTodo(e){
     if(todoInput.value == 0){
         checker.innerHTML = "You cannot leave this field blank!"
         todoInput.classList.add('error');
+        console.log('Failed!');
         setTimeout(function(){
             todoInput.classList.remove('error');
             checker.innerHTML = '';
@@ -27,7 +28,7 @@ function addTodo(e){
 
 function addTodoToUi(addTodo){
     document.createElement('div');
-    div.className = 'todo__area';
+    div.className = 'todo__area';  
 }
 
 function deleteTodo(){
