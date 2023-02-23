@@ -21,15 +21,13 @@ function addTodo(e){
         },2000)
     }
     else{
-        console.log('Daily mission added!')
+        console.log(newTodo)
     }
     e.preventDefault();
 }
 
 function addTodoToUI(newTodo){
-    const todoBox = document.createElement("div");
-    const listItem = document.createElement("li");
-    todoBox.className = "todo__box";
+    
 }
 
 function deleteTodo(){
