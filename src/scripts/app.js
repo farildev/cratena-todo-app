@@ -12,7 +12,7 @@ function eventListeners(){
 }
 function addTodo(e){
     const newTodo = todoInput.value.trim();
-    addTodoToUI(newTodo);
+
     if(todoInput.value == 0){
         checker.innerHTML = "You cannot leave this field blank!"
         todoInput.classList.add('error');
@@ -23,7 +23,7 @@ function addTodo(e){
         },2000)
     }
     else{
-        console.log(newTodo)
+        addTodoToUI(newTodo);
     }
     e.preventDefault();
 }
