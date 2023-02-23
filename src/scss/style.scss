@@ -68,8 +68,18 @@ html{
             height: 100%;
             position: relative;
             .input-checker{
-                margin-top: 20px;
-                color: $red-color;    
+                margin-top: 20px;   
+                &.error{
+                    transition: 500ms all ease-in-out;
+                    color: $red-color;
+                    &:hover{
+                        transition: 500ms all ease-in-out;
+                    }
+                } 
+                &.success{
+                    transition: 500ms all ease-in-out;
+                    color: greenyellow;
+                }
             }
             .top__input{
                 display: flex;
@@ -90,11 +100,24 @@ html{
                     &.error{
                         border: 1px solid $red-color;
                         transition: 500ms all ease-in-out;
+                        &.input-checker{
+                            background-color: rgba;
+                        }
                         &::placeholder{
                             color: rgba($color: red, $alpha: 0.5);
                         }
                         &:hover{
                             transition: 500ms all ease-in-out;
+                        }
+                    }
+                    &.success{
+                        border: 1px solid greenyellow;
+                        transition: 500ms all ease-in-out;
+                        .input-checker{
+                            color: greenyellow;
+                        }
+                        &::placeholder{
+                            color: rgba($color: greenyellow, $alpha: 0.5);
                         }
                     }
                     &::placeholder{
