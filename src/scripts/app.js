@@ -21,6 +21,7 @@ function addTodo(e){
         console.log('Failed!');
         setTimeout(function(){
             todoInput.classList.remove('error');
+            checker.classList.remove('error');
             checker.innerHTML = '';
         },2000)
     }
@@ -31,6 +32,7 @@ function addTodo(e){
         setTimeout(function(){
             checker.innerHTML = ""
         todoInput.classList.remove('success');
+        checker.classList.remove('success');
         },2000)
         addTodoToUI(newTodo);
     }
