@@ -9,6 +9,7 @@ eventListeners();
 
 function eventListeners(){
     form.addEventListener('submit', addTodo);
+    componentBody.addEventListener('click', deleteTodo);
 }
 function addTodo(e){
     const newTodo = todoInput.value.trim();
@@ -59,13 +60,11 @@ function addTodoToUI(newTodo){
     todoInput.value = "";
 }
 
-function showAlert(type,message){
-    const alertBox = document.createElement("div");
-    alertBox
-}
 
-function deleteTodo(){
-
+function deleteTodo(e){
+    if(e.target.className === "bx bx-trash"){
+        e.target.parentElement.parentElement.parentElement.remove();
+    }
 }
 
 function editTodo(){
