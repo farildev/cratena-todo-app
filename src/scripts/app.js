@@ -1,8 +1,11 @@
-const addBtn = document.querySelector('.addtodo__btn');
+const form = document.querySelector('.form__control');
+const componentBody = document.querySelector('.todo__body');
 const todoInput = document.querySelector('.addtodo__input');
 const checker = document.querySelector('.input-checker');
-const form = document.querySelector('.form__control');
 const todoUl = document.querySelector('.todo__list');
+const deleteBtn = document.querySelector('#delete-btn')
+const checkBtn = document.querySelector('#check-btn')
+const addBtn = document.querySelector('.addtodo__btn');
 
 eventListeners();
 
@@ -11,6 +14,7 @@ function eventListeners(){
 }
 function addTodo(e){
     const newTodo = todoInput.value.trim();
+    addTodoToUI(newTodo);
     if(todoInput.value == 0){
         checker.innerHTML = "You cannot leave this field blank!"
         todoInput.classList.add('error');
@@ -27,7 +31,8 @@ function addTodo(e){
 }
 
 function addTodoToUI(newTodo){
-    
+    const todoBox = document.createElement("li");
+    console.log(todoBox);
 }
 
 function deleteTodo(){
