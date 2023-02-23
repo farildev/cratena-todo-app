@@ -3,8 +3,6 @@ const componentBody = document.querySelector('.todo__body');
 const todoInput = document.querySelector('.addtodo__input');
 const checker = document.querySelector('.input-checker');
 const todoUl = document.querySelector('.todo__list');
-const deleteBtn = document.querySelector('#delete-btn')
-const checkBtn = document.querySelector('#check-btn')
 const addBtn = document.querySelector('.addtodo__btn');
 
 eventListeners();
@@ -32,7 +30,21 @@ function addTodo(e){
 
 function addTodoToUI(newTodo){
     const todoBox = document.createElement("li");
-    console.log(todoBox);
+    const deleteBtn = document.createElement("button");
+    const checkBtn = document.createElement("button");
+    const btnContainer = document.createElement("div");
+    btnContainer.className = "todo-config-btn";
+    checkBtn.className = "  check-btn";
+    checkBtn.innerHTML = "<i class='bx bx-check'></i>";
+    deleteBtn.className = "delete-btn";
+    deleteBtn.innerHTML = "<i class='bx bx-trash'></i>";
+    btnContainer.appendChild(checkBtn);
+    btnContainer.appendChild(deleteBtn);
+    todoBox.className = "todo__box";
+    todoBox.appendChild(document.createTextNode(newTodo));
+    todoBox.appendChild(btnContainer);
+    todoUl.appendChild(todoBox);
+    todoInput.value = "";
 }
 
 function deleteTodo(){
