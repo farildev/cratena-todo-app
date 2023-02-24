@@ -6,6 +6,7 @@ const todoUl = document.querySelector('.todo__list');
 const addBtn = document.querySelector('.addtodo__btn');
 const deleteAllTodosBtn = document.querySelector('#delete-all-todos');
 const filterInput = document.querySelector('#filter-input');
+const loader = document.getElementById("preloader");
 eventListeners();
 //Event listeners function, all listeners working here
 function eventListeners(){
@@ -14,7 +15,12 @@ function eventListeners(){
     document.addEventListener("DOMContentLoaded", showTodoInUI);
     deleteAllTodosBtn.addEventListener('click', removeAllTodos);
     filterInput.addEventListener('keyup', filterTodos);
+    window.addEventListener("load", preloadScene);
 }
+function preloadScene(){
+    loader.style.display = "none";
+}
+
 //Remove all todos from UI
 function removeAllTodos(e){
     if(confirm("Are you want delete all todos?")){
@@ -137,4 +143,5 @@ function sendStorage(newTodo){
     todos.push(newTodo);
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
 
