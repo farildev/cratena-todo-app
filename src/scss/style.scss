@@ -156,11 +156,14 @@ html{
             margin-top: 1rem;
             height: 50vh;
             overflow-y: scroll;
-            ::-webkit-scrollbar{
+            &::-webkit-scrollbar{
                 background-color: $dark-color;
+                width: 7px;
+                border-radius: 10px;
             }
-            ::-webkit-scrollbar-thumb{
+            &::-webkit-scrollbar-thumb{
                 background-color: $main-color;
+                border-radius: 10px;
             }
             .todo__list{
                 .todo__box{

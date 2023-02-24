@@ -35,6 +35,7 @@ function addTodo(e){
         checker.classList.remove('success');
         },2000)
         addTodoToUI(newTodo);
+        sendStorage(newTodo);
     }
     e.preventDefault();
 }
@@ -69,12 +70,25 @@ function deleteTodo(e){
     }
 }
 
-function editTodo(){
-
+function checkTodo(e){
+    
 }
 
-function sendStorage(){
+function getTodos(){
+    let todo;
+    if(localStorage.getItem("todo") === null){
+        todo = [];
+    }
+    else{
+        todo = JSON.parse(localStorage.getItem("todo"));
+    }
+    return todo
+}
 
+function sendStorage(newTodo){
+    let todo = getTodos();
+    todo.push(newTodo);
+    localStorage.setItem("todo", JSON.stringify(todo));
 }
 
 function deleteFromStorage(){
