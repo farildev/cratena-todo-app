@@ -73,6 +73,7 @@ function addTodo(e){
         },2000)
         addTodoToUI(newTodo);
         sendStorage(newTodo);
+        sendStorageChecked(newTodo);
     }
     e.preventDefault();
 }
@@ -99,6 +100,15 @@ function addTodoToUI(newTodo){
     todoBox.appendChild(btnContainer);
     todoUl.appendChild(todoBox);
     todoInput.value = "";
+
+    checkBtn.addEventListener('click', function(){
+        todoBox.classList.toggle('disabled');
+        function sendStorageChecked(){
+            let todos = getTodos();
+            todos.push(newTodo);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+    })
 }
 
 //Delete Todos from Lists
