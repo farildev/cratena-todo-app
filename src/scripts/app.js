@@ -9,7 +9,8 @@ eventListeners();
 
 function eventListeners(){
     form.addEventListener('submit', addTodo);
-    componentBody.addEventListener('click', deleteTodo);
+    componentBody.addEventListener('click', deleteTodos);
+    document.addEventListener("DOMContentLoaded", showTodoInUI);
 }
 function addTodo(e){
     const newTodo = todoInput.value.trim();
@@ -64,14 +65,20 @@ function addTodoToUI(newTodo){
 }
 
 
-function deleteTodo(e){
+function deleteTodos(e){
     if(e.target.className === "bx bx-trash"){
         e.target.parentElement.parentElement.parentElement.remove();
     }
 }
 
-function checkTodo(e){
+function checkTodos(e){
     
+}
+function showTodoInUI(){
+    let todos = getTodos();
+    todos.forEach(function(todo){
+        addTodoToUI(todo);
+    })
 }
 
 function getTodos(){
@@ -82,7 +89,7 @@ function getTodos(){
     else{
         todo = JSON.parse(localStorage.getItem("todo"));
     }
-    return todo
+    return todo;
 }
 
 function sendStorage(newTodo){
