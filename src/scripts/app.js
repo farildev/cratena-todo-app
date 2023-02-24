@@ -6,12 +6,13 @@ const todoUl = document.querySelector('.todo__list');
 const addBtn = document.querySelector('.addtodo__btn');
 
 eventListeners();
-
+//Event listeners function, all listeners working here
 function eventListeners(){
     form.addEventListener('submit', addTodo);
     componentBody.addEventListener('click', deleteTodos);
     document.addEventListener("DOMContentLoaded", showTodoInUI);
 }
+//Add todo and creating dynamic elements
 function addTodo(e){
     const newTodo = todoInput.value.trim();
 
@@ -40,7 +41,7 @@ function addTodo(e){
     }
     e.preventDefault();
 }
-
+//Send created elements to UI
 function addTodoToUI(newTodo){
     const todoBox = document.createElement("li");
     const deleteBtn = document.createElement("button");
@@ -64,48 +65,46 @@ function addTodoToUI(newTodo){
     todoInput.value = "";
 }
 
-
+//Delete Todos from Lists
 function deleteTodos(e){
     if(e.target.className === "bx bx-trash"){
         e.target.parentElement.parentElement.parentElement.remove();
         deleteFromStorage(e.target.parentElement.parentElement.parentElement.textContent);
     }
 }
-
-function deleteFromStorage(deleteTodos){
+//Delete todos from Local Storage
+function deleteFromStorage(deletetodo){
     let todos = getTodos();
     todos.forEach(function(todo,index){
-        if (todo === deleteTodos){
+        if (todo === deletetodo){
             todos.splice(index,1);
         }
     })
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function checkTodos(e){
-    
-}
+//Show todos in UI
 function showTodoInUI(){
     let todos = getTodos();
     todos.forEach(function(todo){
         addTodoToUI(todo);
     })
 }
-
+//Get todos from Local storage
 function getTodos(){
     let todos;
-    if(localStorage.getItem("todo") === null){
+    if(localStorage.getItem("todos") === null){
         todos = [];
     }
     else{
-        todos = JSON.parse(localStorage.getItem("todo"));
+        todos = JSON.parse(localStorage.getItem("todos"));
     }
     return todos;
 }
-
+//Send todos to Local storage
 function sendStorage(newTodo){
     let todos = getTodos();
     todos.push(newTodo);
-    localStorage.setItem("todo", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
