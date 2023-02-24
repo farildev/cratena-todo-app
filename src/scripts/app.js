@@ -68,7 +68,18 @@ function addTodoToUI(newTodo){
 function deleteTodos(e){
     if(e.target.className === "bx bx-trash"){
         e.target.parentElement.parentElement.parentElement.remove();
+        deleteFromStorage(e.target.parentElement.parentElement.parentElement.textContent);
     }
+}
+
+function deleteFromStorage(deleteTodos){
+    let todos = getTodos();
+    todos.forEach(function(todo,index){
+        if (todo === deleteTodos){
+            todos.splice(index,1);
+        }
+    })
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function checkTodos(e){
@@ -82,23 +93,19 @@ function showTodoInUI(){
 }
 
 function getTodos(){
-    let todo;
+    let todos;
     if(localStorage.getItem("todo") === null){
-        todo = [];
+        todos = [];
     }
     else{
-        todo = JSON.parse(localStorage.getItem("todo"));
+        todos = JSON.parse(localStorage.getItem("todo"));
     }
-    return todo;
+    return todos;
 }
 
 function sendStorage(newTodo){
-    let todo = getTodos();
-    todo.push(newTodo);
-    localStorage.setItem("todo", JSON.stringify(todo));
-}
-
-function deleteFromStorage(){
-
+    let todos = getTodos();
+    todos.push(newTodo);
+    localStorage.setItem("todo", JSON.stringify(todos));
 }
 
