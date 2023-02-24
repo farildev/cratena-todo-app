@@ -33,18 +33,18 @@ html{
     justify-content: center;
     align-items: center;
     height: 100%;
-    z-index: 99;
+    z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
     background-image: url('/src/img/bg.jpg');
     background-repeat: no-repeat;
-    transform: translateY(0);
+    transform: translateY(100px);
     visibility: visible;
     transition: 500ms all ease-in-out;
     &.scene-activated{
         visibility: hidden;
-        transform: translateY(100%);
+        transform: translateY(100px);
         transition: 500ms all ease-in-out;
     }
     .lds-ellipsis {
@@ -130,8 +130,8 @@ html{
             h1{
                 color: $light-color;
                 font-weight: 400;
-                font-size: 28px;
-                line-height: 40px;
+                font-size: 24px;
+                line-height: 32px;
             }
             i{
                 color: $light-color;
@@ -168,6 +168,7 @@ html{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                flex-direction: row;
                 margin-top: 10px;
                 .addtodo__input{
                     width: 85%;
@@ -183,9 +184,6 @@ html{
                     &.error{
                         border: 1px solid $red-color;
                         transition: 500ms all ease-in-out;
-                        &.input-checker{
-                            background-color: rgba;
-                        }
                         &::placeholder{
                             color: rgba($color: red, $alpha: 0.5);
                         }
@@ -215,6 +213,7 @@ html{
                     font-family: 'DM Sans';
                     font-size: 12px;
                     background-color: $main-color;
+                    margin-left: 5px;
                     cursor: pointer;
                     i{
                         font-size: 20px;
@@ -265,7 +264,7 @@ html{
                 border-radius: 5px; 
                 cursor: pointer;
                 font-family: 'DM Sans',sans-serif;
-
+                
             }
         }
         .todo__area{
@@ -323,6 +322,134 @@ html{
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:768px){
+    .container{
+        .todo__body{
+            .todo__header{
+                h1{
+                    font-size: 22px;
+                }
+            }
+            .form__control{
+                .input-checker{
+                    font-size: 14px;
+                }
+            }
+            .todo__search{
+                h3{
+                    font-size: 16px;
+                }
+            }
+            .daily-missions{
+                h3{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 600px){
+    .container{
+        .todo__body{
+            overflow-y: hidden;
+            width: 90%;
+            .todo__header{
+                h1{
+                    font-size: 20px;
+                }
+                i{
+                    font-size: 14px;
+                }
+            }
+            .form__control{
+                .input-checker{
+                    font-size: 12px;
+                }
+                .top__input{
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    .addtodo__input{
+                        width: 100%;
+                    }
+                    .addtodo__btn{
+                        width: 100%;
+                        margin: 5px 0 0 0 ;
+                    }
+                }
+            }
+            .todo__search{
+                h3{
+                    font-size: 14px;
+                }
+            }
+            .daily-missions{
+                h3{
+                    font-size: 14px;
+                    width: 100%;
+                    margin-top: 5px;
+                }
+                button{
+                    padding: 0.7rem;
+                    font-size: 12px;
+                    margin-top: 5px;
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 480px){
+    .container{
+        overflow-y: hidden;
+        .todo__body{
+            width: 100%;
+            .todo__header{
+                h1{
+                    font-size: 20px;
+                }
+                i{
+                    font-size: 14px;
+                }
+            }
+            .form__control{
+                .input-checker{
+                    font-size: 12px;
+                }
+                .top__input{
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    .addtodo__input{
+                        width: 100%;
+                    }
+                    .addtodo__btn{
+                        width: 100%;
+                        margin: 5px 0 0 0 ;
+                    }
+                }
+            }
+            .todo__search{
+                h3{
+                    font-size: 14px;
+                }
+            }
+            .daily-missions{
+                width: 100%;
+                h3{
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+                button{
+                    width: 50%;
+                    padding: 0.7rem;
+                    font-size: 12px;
+                    margin-top: 5px;
                 }
             }
         }
