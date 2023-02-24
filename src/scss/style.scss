@@ -39,12 +39,12 @@ html{
         width: 75%;
         height: auto;
         border-radius: 10px;
-        padding: 2rem;
+        padding: 20px 32px 32px 32px;
         box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.5);
         -webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.5);
         -moz-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.5);
         .todo__header{
-            margin-top: 20px;
+            margin-top: 10px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -68,7 +68,7 @@ html{
             height: 100%;
             position: relative;
             .input-checker{
-                margin-top: 10px;
+                margin-top: 15px;
                 color: transparent;
                 &.error{
                     transition: 300ms all ease-in-out;
@@ -145,7 +145,7 @@ html{
             }
         }
         .todo__search{
-            margin-top: 2rem;
+            margin-top: 20px;
             h3{
                 color: rgba($color: #ffffff, $alpha: 0.5);
                 font-weight: 400;
@@ -169,10 +169,24 @@ html{
         }
         .daily-missions{
             margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             h3{
                 color: rgba($color: #ffffff, $alpha: 0.5);
                 font-weight: 400;
                 font-size: 18px;
+            }
+            button{
+                background-color: $main-color;
+                outline: none;
+                border: none;
+                color: $light-color;
+                padding: 1rem;
+                border-radius: 5px; 
+                cursor: pointer;
+                font-family: 'DM Sans',sans-serif;
+
             }
         }
         .todo__area{

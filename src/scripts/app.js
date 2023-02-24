@@ -4,6 +4,7 @@ const todoInput = document.querySelector('.addtodo__input');
 const checker = document.querySelector('.input-checker');
 const todoUl = document.querySelector('.todo__list');
 const addBtn = document.querySelector('.addtodo__btn');
+const deleteAllTodosBtn = document.querySelector('#delete-all-todos');
 
 eventListeners();
 //Event listeners function, all listeners working here
@@ -11,6 +12,7 @@ function eventListeners(){
     form.addEventListener('submit', addTodo);
     componentBody.addEventListener('click', deleteTodos);
     document.addEventListener("DOMContentLoaded", showTodoInUI);
+    deleteAllTodosBtn.addEventListener('click', removeAllTodos);
 }
 //Add todo and creating dynamic elements
 function addTodo(e){
@@ -40,6 +42,14 @@ function addTodo(e){
         sendStorage(newTodo);
     }
     e.preventDefault();
+}
+function removeAllTodos(e){
+    if(confirm("Are you want delete all todos?")){
+        while(todoUl.firstElementChild != null){
+            todoUl.removeChild(todoUl.firstElementChild);
+        }
+        localStorage.removeItem("todos");
+    }
 }
 //Send created elements to UI
 function addTodoToUI(newTodo){
