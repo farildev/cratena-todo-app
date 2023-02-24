@@ -5,7 +5,7 @@ const checker = document.querySelector('.input-checker');
 const todoUl = document.querySelector('.todo__list');
 const addBtn = document.querySelector('.addtodo__btn');
 const deleteAllTodosBtn = document.querySelector('#delete-all-todos');
-
+const filterInput = document.querySelector('#filter-input');
 eventListeners();
 //Event listeners function, all listeners working here
 function eventListeners(){
@@ -13,7 +13,35 @@ function eventListeners(){
     componentBody.addEventListener('click', deleteTodos);
     document.addEventListener("DOMContentLoaded", showTodoInUI);
     deleteAllTodosBtn.addEventListener('click', removeAllTodos);
+    filterInput.addEventListener('keyup', filterTodos);
 }
+
+
+function removeAllTodos(e){
+    if(confirm("Are you want delete all todos?")){
+        while(todoUl.firstElementChild != null){
+            todoUl.removeChild(todoUl.firstElementChild);
+        }
+        localStorage.removeItem("todos");
+    }
+}
+
+function filterTodos(e){
+    const filterValue = e.target.value;
+    const listItems = document.querySelectorAll('.todo__box');
+
+    listItems.forEach(function(listItem){
+        const text = listItem.textContent.toLowerCase();
+        if(text.indexOf(filterValue) === -1){
+            listItem.setAttribute("style", "display : none !important")
+        }
+        else{
+            listItem.setAttribute("style", "display:flex, justify-content:space-between, align-items:center");
+        }
+    })
+}
+
+
 //Add todo and creating dynamic elements
 function addTodo(e){
     const newTodo = todoInput.value.trim();
@@ -43,14 +71,7 @@ function addTodo(e){
     }
     e.preventDefault();
 }
-function removeAllTodos(e){
-    if(confirm("Are you want delete all todos?")){
-        while(todoUl.firstElementChild != null){
-            todoUl.removeChild(todoUl.firstElementChild);
-        }
-        localStorage.removeItem("todos");
-    }
-}
+
 //Send created elements to UI
 function addTodoToUI(newTodo){
     const todoBox = document.createElement("li");
