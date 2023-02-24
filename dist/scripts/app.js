@@ -6,7 +6,7 @@ const todoUl = document.querySelector('.todo__list');
 const addBtn = document.querySelector('.addtodo__btn');
 const deleteAllTodosBtn = document.querySelector('#delete-all-todos');
 const filterInput = document.querySelector('#filter-input');
-const loader = document.getElementById("preloader");
+const loader = document.querySelector('.preloader');
 eventListeners();
 //Event listeners function, all listeners working here
 function eventListeners(){
@@ -18,7 +18,7 @@ function eventListeners(){
     window.addEventListener("load", preloadScene);
 }
 function preloadScene(){
-    loader.style.display = "none";
+    loader.classList.add('scene-activated');
 }
 
 //Remove all todos from UI

@@ -40,9 +40,12 @@ html{
     background-image: url('/src/img/bg.jpg');
     background-repeat: no-repeat;
     transform: translateY(0);
+    visibility: visible;
     transition: 500ms all ease-in-out;
     &.scene-activated{
-        transform: translateY(0);
+        visibility: hidden;
+        transform: translateY(100%);
+        transition: 500ms all ease-in-out;
     }
     .lds-ellipsis {
         display: inline-block;
