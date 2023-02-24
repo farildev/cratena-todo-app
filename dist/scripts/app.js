@@ -15,8 +15,7 @@ function eventListeners(){
     deleteAllTodosBtn.addEventListener('click', removeAllTodos);
     filterInput.addEventListener('keyup', filterTodos);
 }
-
-
+//Remove all todos from UI
 function removeAllTodos(e){
     if(confirm("Are you want delete all todos?")){
         while(todoUl.firstElementChild != null){
@@ -25,7 +24,7 @@ function removeAllTodos(e){
         localStorage.removeItem("todos");
     }
 }
-
+//Filter all todos
 function filterTodos(e){
     const filterValue = e.target.value;
     const listItems = document.querySelectorAll('.todo__box');
